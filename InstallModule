@@ -1,0 +1,15 @@
+## Replace this variable with whatever module you want to install
+$module = "git"
+
+Write-Host "Checking if $($module) is installed" -f Cyan
+
+$modules = (Get-InstalledModule).Name
+
+If($modules -contains $module){
+    Write-Host "$($module) is installed.  Nothing else to do." -f Green
+    }
+
+Else{
+    Write-Host "Installing $($module)..." -f Magenta
+    Install-Module -Name $module -Scope CurrentUser -Verbose
+    }
